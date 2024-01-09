@@ -1,0 +1,45 @@
+#####################
+# app-contador ----------------------------------------------
+#####################
+---
+apiVersion: apps/v1
+kind: Deployment # ReplicaSets + Pods = Deployment
+metadata:
+  name: app-contador-deployment
+  namespace: intro-k8s
+  labels:
+    app: app-contador # <-
+    maintainer: matiops #<- Somos libres de agregar cualquier label a gusto nuestro
+spec:
+  replicas: 1 # <- 
+  selector:
+    matchLabels:
+      app: app-contador # <- Prestar atencion. Con este match label el replica set sabe que pods encuentra el pod a administrar
+  template: # <- Comienza especificacion de PODs
+    metadata:
+      labels:
+        app: app-contador # <- Label del pod. Debe coincidir con el matchLabel del ReplicaSet
+    spec:
+      containers: # <- ¡Multi-container pod! La app hace consultas al redis en localhost
+      - name: app-contador # <- Nombre del conenedor a crear
+        image: matiops/intro-k8s:app-contador  # <- Imagen
+        ports:
+        - containerPort: 8000
+      - name: redis-contador
+        image: redis
+        ports:
+        - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-contador-service
+  namespace: intro-k8s
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8080   # <- Prestar atencion
+      targetPort: 8000
+  selector:
+    app: app-contador # <-

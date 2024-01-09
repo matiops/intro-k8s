@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  app-saludo:
+    image: matiops/intro-k8s:app-saludo
+    # build: ./app-saludo/src/
+    ports:
+      - "8081:8000"
+
+  app-contador:
+    image: matiops/intro-k8s:app-contador
+    #build: ./app-contador/src/
+    ports:
+      - "8080:8000"
+
+  redis:
+    image: redis:alpine

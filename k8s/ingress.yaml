@@ -1,0 +1,28 @@
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: intro-k8s-ingress
+  namespace: intro-k8s
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /app-contador(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: app-contador-service
+            port:
+              number: 8080
+      - path: /app-saludo(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: app-contador-service
+            port:
+              number: 8081 # <- Como son dos services diferentes, ambos podrian escuchar el 8000 sin problemas. Sin embargo, por cuestion pedagogica, se mantiene la diferencia.
+---
