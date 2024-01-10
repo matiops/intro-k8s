@@ -23,6 +23,7 @@ spec:
       containers: # <- ¡Multi-container pod! La app hace consultas al redis en localhost
       - name: app-contador # <- Nombre del conenedor a crear
         image: matiops/intro-k8s:app-contador  # <- Imagen
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
       - name: redis-contador

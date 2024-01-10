@@ -11,7 +11,7 @@ metadata:
     app: app-saludo # <-
     maintainer: matiops #<- Somos libres de agregar cualquier label a gusto nuestro
 spec:
-  replicas: 2 # <- 
+  replicas: 1 # <- 
   selector:
     matchLabels:
       app: app-saludo # <- Prestar atencion. Con este match label el replica set sabe que pods encuentra el pod a administrar
