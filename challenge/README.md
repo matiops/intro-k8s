@@ -6,7 +6,7 @@ En esta sección entrontrarás un pequeño challenge para poner en práctica lo 
 
 Las consignas son las siguientes:
 
-1 - Levantar en un cluster de kubernetes una arquitectura similar a la siguiente. Notarás que es muy similar a la utilizada en el video. Se proveén plantillas de manifestos que puede utilizar.
+1 - Levantar en un cluster de kubernetes la siguiente arquitectura. Notarás que es muy similar a la utilizada en el video. Se proveén plantillas de manifestos que puede utilizar.
 
 ![ArquitecturaChallenge](./intro-k8s-challenge.png "Diagrama arquitectura del challenge")
 
