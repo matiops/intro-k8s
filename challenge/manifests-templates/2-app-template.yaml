@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xxxTO-DOxxx
+  namespace: xxxTO-DOxxx
+  labels:
+    app: xxxTO-DOxxx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xxxTO-DOxxx
+  template:
+    metadata:
+      labels:
+        app: xxxTO-DOxxx
+    spec:
+      containers:
+      - name: xxxTO-DOxxx
+        image: xxxTO-DOxxx 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: xxxTO-DOxxx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: xxxTO-DOxxx
+  namespace: xxxTO-DOxxx
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: xxxTO-DOxxx
+      targetPort: xxxTO-DOxxx
+  selector:
+    app: xxxTO-DOxxx

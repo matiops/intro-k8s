@@ -23,7 +23,8 @@ Para la realizacion del video se ha utlizado [microk8s](https://microk8s.io/) (v
 Tambien es necesaria la instalación de [kubectl](https://kubernetes.io/docs/tasks/tools/).
 
 ## Algunos comandos utiles en caso de utilizar microk8s:
-Para iniciar el cluster en microk8s
+
+#### Para iniciar el cluster en microk8s
 - `microk8s start`
 
 Generar kubeconfig
@@ -32,22 +33,27 @@ Generar kubeconfig
 Configurar el kubeconfig a utilizar para conectarse al cluster
 - `export KUBECONFIG=~/.kube/microk8s` 
 
-Habilitar el nginx ingress controler que viene con microk8s
+#### Habilitar el nginx ingress controler que viene con microk8s
 - `microk8s enable ingress`
 
-Detener el cluster:
+#### Detener el cluster:
 - `microk8s stop`
 
-Acceder al dashboard:
-- Seguir los pasos en [esta](https://microk8s.io/docs/addon-dashboard) guia.
-TL;DR:
+#### Acceder al dashboard:
 
 1 - `microk8s enable dashboard`
 
 2 - `microk8s kubectl create token default`
 
-3 - `microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443`
+3 - `microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10444:443`
 
-4 - Accedemos desde el navegador por https://127.0.0.1:10443
+4 - Accedemos desde el navegador por https://127.0.0.1:10444
 
 5 - Seleccionamos autenticacion por token y pegamos el obtenido en el paso 2
+
+- TL;DR: Seguir los pasos en [esta](https://microk8s.io/docs/addon-dashboard) guia.
+
+
+## Challenge
+
+En la carpeta "challenge" podran encontrar unas consignas practicas para poner a prueba lo aprendido en esa serie.
